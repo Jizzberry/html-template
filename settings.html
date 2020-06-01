@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+
+		<!-- Bootstrap CSS -->
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+			crossorigin="anonymous"
+		/>
+
+		<link rel="stylesheet" href="assets/css/settings.css" />
+		<title>Settings!</title>
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			sizes="530x530"
+			href="assets/img/Jizzberry%20Logo.svg?h=ae70653461c1cb2d4dc19d01887c9402"
+		/>
+	</head>
+
+	<body>
+		<!-- ########## TOP NAVIGATION MENU STARTS ########## -->
+		<div
+			style="
+				background-color: white;
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 999;
+			"
+			class="container-fluid m-0 p-0"
+		>
+			<div class="top-nav row m-0 pb-0">
+				<div class="col-md-3 d-flex pt-1">
+					<button class="btn mr-5 active" id="nav-toggle">
+						<i style="font-size: 22px;" class="fas fa-bars"></i>
+					</button>
+					<img
+						style="width: 3rem;"
+						class="img-fluid"
+						src="assets/img/Jizzberry Logo.svg"
+					/>
+					<img
+						style="width: 8.5rem;"
+						class="img-fluid"
+						src="assets/img/txt-logo.svg"
+					/>
+				</div>
+				<div class="col-md-6 pl-5">
+					<div class="search">
+						<i
+							style="font-size: 22px; margin: 0 1rem; opacity: 0.75;"
+							class="fas fa-search"
+						></i>
+						<input
+							class="typeahead tt-query text-center"
+							autocomplete="off"
+							spellcheck="false"
+							type="text"
+							placeholder="Search"
+						/>
+					</div>
+				</div>
+				<div style="justify-content: flex-end;" class="col-md-3 pt-3 d-flex">
+					<div class="mr-4 d-flex">
+						<div class="profile-img mr-2">
+							<img class="img-fluid btn-dark" src="assets/img/txt-logo.svg" />
+						</div>
+						<p
+							style="
+								font-style: oblique;
+								font-size: 18px;
+								font-weight: 400;
+								opacity: 0.85;
+							"
+						>
+							Ovenoboyo
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ########## TOP NAVIGATION MENU ENDS ########## -->
+
+		<!-- ########## BELOW TOP-NAV STARTS ########## -->
+		<main style="position: relative; top: 59px;">
+			<!-- ########## SIDEBAR NAVIGATION MENU STARTS ########## -->
+			<div
+				style="
+					position: fixed;
+					left: 0;
+					top: 59px;
+					z-index: 999;
+					overflow: hidden;
+				"
+				class="sidebar d-flex flex-column"
+				id="sidebar"
+			>
+				<div id="settings-nav">
+					<button style="width: 4rem;" class="btn" onclick="handleBackPress();">
+						<i
+							style="font-size: 30px; color: crimson;"
+							class="fas fa-angle-left"
+						></i>
+					</button>
+					<p style="font-size: 28px;" class="pt-4 mb-4 text-center side-title">
+						Settings
+					</p>
+					<ul>
+						<li class="d-flex ml-4" onclick="handleTabChange('tasks')">
+							<a class="d-flex" href="#">
+								<div
+									style="background-color: gray; height: 24px; width: 24px;"
+									class="grey-circle mr-3 mb-4"
+								></div>
+								<p style="font-size: 16px; font-weight: 500; opacity: 0.8;">
+									Tasks
+								</p>
+							</a>
+						</li>
+						<li class="d-flex ml-4" onclick="handleTabChange('config')">
+							<a class="d-flex" href="#">
+								<div
+									style="background-color: gray; height: 24px; width: 24px;"
+									class="grey-circle mr-3 mb-4"
+								></div>
+								<p style="font-size: 16px; font-weight: 500; opacity: 0.8;">
+									Config
+								</p>
+							</a>
+						</li>
+						<li class="d-flex ml-4" onclick="handleTabChange('logs')">
+							<a class="d-flex" href="#">
+								<div
+									style="background-color: gray; height: 24px; width: 24px;"
+									class="grey-circle mr-3 mb-4"
+								></div>
+								<p style="font-size: 16px; font-weight: 500; opacity: 0.8;">
+									Logs
+								</p>
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<div id="home-nav" hidden>
+					<div
+						style="
+							position: fixed;
+							left: 0;
+							top: 59px;
+							z-index: 999;
+							box-sizing: border-box;
+						"
+						class="sidebar d-flex flex-column"
+					>
+						<p
+							style="font-size: 28px; box-sizing: border-box;"
+							class="pt-4 text-center side-title"
+						>
+							Jizzberry
+						</p>
+						<div style="box-sizing: border-box;" class="d-flex ml-4">
+							<a class="d-flex" href="#">
+								<div
+									style="width: 18px; height: 18px;"
+									class="mt-1 ml-1 grey-circle mr-3"
+								></div>
+								<p style="font-size: 16px;">Home</p>
+							</a>
+						</div>
+
+						<div style="box-sizing: border-box;" class="categories">
+							<h5 class="text-center mb-4">Categories</h5>
+							<ul>
+								<li class="d-flex ml-4">
+									<a class="d-flex" href="#">
+										<div class="grey-circle mr-3"></div>
+										<p style="font-size: 16px;">Category0</p>
+									</a>
+								</li>
+								<li class="d-flex ml-4">
+									<a class="d-flex" href="#">
+										<div class="grey-circle mr-3"></div>
+										<p style="font-size: 16px;">Category1</p>
+									</a>
+								</li>
+								<li class="d-flex ml-4">
+									<a class="d-flex" href="#">
+										<div class="grey-circle mr-3"></div>
+										<p style="font-size: 16px;">Category2</p>
+									</a>
+								</li>
+								<li class="d-flex ml-4">
+									<a class="d-flex" href="#">
+										<div class="grey-circle mr-3"></div>
+										<p style="font-size: 16px;">Category3</p>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div style="box-sizing: border-box;" class="actors">
+							<h5 class="text-center mb-4">Actors</h5>
+							<ul>
+								<li class="d-flex ml-4">
+									<a class="d-flex" href="#">
+										<div class="grey-circle mr-3"></div>
+										<p style="font-size: 16px;">Actor0</p>
+									</a>
+								</li>
+								<li class="d-flex ml-4">
+									<a class="d-flex" href="#">
+										<div class="grey-circle mr-3"></div>
+										<p style="font-size: 16px;">Actor1</p>
+									</a>
+								</li>
+								<li class="d-flex ml-4">
+									<a class="d-flex" href="#">
+										<div class="grey-circle mr-3"></div>
+										<p style="font-size: 16px;">Actor2</p>
+									</a>
+								</li>
+								<li class="d-flex ml-4">
+									<a class="d-flex" href="#">
+										<div class="grey-circle mr-3"></div>
+										<p style="font-size: 16px;">Actor3</p>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div style="box-sizing: border-box;" class="Settings">
+							<h5 class="text-center mb-4">Settings</h5>
+							<div class="d-flex ml-4">
+								<a class="d-flex" href="#" onclick="handleSettingsPress();">
+									<div
+										style="width: 18px; height: 18px;"
+										class="mt-1 ml-1 grey-circle mr-3"
+									></div>
+									<p style="font-size: 16px;">Settings</p>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- ########## SIDEBAR NAVIGATION MENU ENDS ########## -->
+
+			<!-- ########## MAIN-CONTENT STARTS ########## -->
+			<div
+				id="content"
+				style="position: absolute; padding-left: 13rem; width: 100%;"
+				class="main-content"
+			>
+				<div id="config" hidden>
+					<div class="pt-5 pl-5">
+						<div class="config">
+							<h4
+								class="mb-4"
+								style="font-family: Raleway, sans-serif; font-weight: 600;"
+							>
+								Config
+							</h4>
+							<div class="added-path mb-5">
+								<span style="display: flex;">
+									<h5>
+										Added Paths
+									</h5>
+									<div
+										style="margin-left: 1rem;"
+										class="btn config-grey-circle"
+									>
+										<a href="#"></a>
+									</div>
+								</span>
+								<hr class="mt-0" />
+								<nav>
+									<div style="margin-bottom: 0.7rem;" class="path-link">
+										<span>1)</span>
+										<span><a href="#">G://Movies/Tests/keks</a></span>
+										<span
+											><div class="btn config-grey-circle">
+												<i style="opacity: 0.65;" class="fas fa-times"></i>
+												<a href="#"></a></div
+										></span>
+									</div>
+									<div style="margin-bottom: 0.7rem;" class="path-link">
+										<span>1)</span>
+										<span><a href="#">G://Movies/Tests/keks</a></span>
+										<span
+											><div class="btn config-grey-circle">
+												<i style="opacity: 0.65;" class="fas fa-times"></i>
+												<a href="#"></a></div
+										></span>
+									</div>
+									<div style="margin-bottom: 0.7rem;" class="path-link">
+										<span>1)</span>
+										<span><a href="#">G://Movies/Tests/keks</a></span>
+										<span
+											><div class="btn config-grey-circle">
+												<i style="opacity: 0.65;" class="fas fa-times"></i>
+												<a href="#"></a></div
+										></span>
+									</div>
+								</nav>
+							</div>
+							<div class="rename-config mb-5">
+								<h5>Rename Config</h5>
+								<hr class="mt-0" />
+								<div class="mb-3">
+									<div class="d-flex">
+										<fieldset class="mr-4">
+											<legend>File Rename Formatter.</legend>
+											<input
+												type="text"
+												id="fname"
+												placeholder="enter"
+												name="fname"
+											/>
+										</fieldset>
+										<div
+											style="margin-left: 1rem;"
+											class="btn mt-4 ml-3 config-grey-circle"
+										>
+											<a href="#"></a>
+										</div>
+									</div>
+								</div>
+								<div>
+									<div class="d-flex">
+										<fieldset class="mr-4">
+											<legend>File Rename Formatter.</legend>
+											<input
+												type="text"
+												id="fname"
+												placeholder="enter"
+												name="fname"
+											/>
+										</fieldset>
+										<div
+											style="margin-left: 1rem;"
+											class="btn mt-4 ml-3 config-grey-circle"
+										>
+											<a href="#"></a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="tags mb-5">
+								<h5>Tags</h5>
+								<hr class="mt-0" />
+								<div class="tag-cards d-flex">
+									<div
+										class="card mr-5"
+										style="
+											width: 8rem;
+											border: none;
+											background-color: rgb(250, 250, 250);
+										"
+									>
+										<a href="#">
+											<img
+												style="
+													background-color: lightgray;
+													border-radius: 10px;
+												"
+												class="card-img-top"
+												src="assets/img/plus.png"
+											/>
+										</a>
+										<div class="card-body p-0">
+											<p class="text-center card-text">
+												New Tag
+											</p>
+										</div>
+									</div>
+									<div
+										class="card mr-5"
+										style="
+											width: 8rem;
+											border: none;
+											background-color: rgb(250, 250, 250);
+										"
+									>
+										<a href="#">
+											<img
+												style="
+													background-color: rgba(241, 27, 70, 0.75);
+													border-radius: 10px;
+												"
+												class="card-img-top"
+												src="assets/img/plus.png"
+											/>
+										</a>
+										<div class="card-body p-0">
+											<p class="text-center card-text">
+												Hello
+												<br />
+												<span style="font-size: 12px;" class="text-muted"
+													>27 videos</span
+												>
+											</p>
+										</div>
+									</div>
+									<div
+										class="card mr-5"
+										style="
+											width: 8rem;
+											border: none;
+											background-color: rgb(250, 250, 250);
+										"
+									>
+										<a href="#">
+											<img
+												style="
+													background-color: rgba(255, 166, 0, 0.5);
+													border-radius: 10px;
+												"
+												class="card-img-top"
+												src="assets/img/plus.png"
+											/>
+										</a>
+										<div class="card-body p-0">
+											<p class="text-center card-text">
+												Bye <br />
+												<span style="font-size: 12px;" class="text-muted"
+													>60 videos</span
+												>
+											</p>
+										</div>
+									</div>
+									<div
+										class="card mr-5"
+										style="
+											width: 8rem;
+											border: none;
+											background-color: rgb(250, 250, 250);
+										"
+									>
+										<a href="#">
+											<img
+												style="
+													background-color: rgba(68, 245, 186, 0.63);
+													border-radius: 10px;
+												"
+												class="card-img-top"
+												src="assets/img/plus.png"
+											/>
+										</a>
+										<div class="card-body p-0">
+											<p class="text-center card-text">
+												Kek <br />
+												<span style="font-size: 12px;" class="text-muted"
+													>420 videos</span
+												>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="Users mb-2">
+								<h5>Users</h5>
+								<hr class="mt-0" />
+								<div class="tag-cards d-flex">
+									<div
+										class="card mr-5"
+										style="
+											width: 8rem;
+											border: none;
+											background-color: rgb(250, 250, 250);
+										"
+									>
+										<a href="#">
+											<img
+												style="
+													background-color: lightgray;
+													border-radius: 10px;
+												"
+												class="card-img-top"
+												src="assets/img/plus.png"
+											/>
+										</a>
+										<div class="card-body p-0">
+											<p class="text-center card-text">
+												New User
+											</p>
+										</div>
+									</div>
+									<div
+										class="card mr-5"
+										style="
+											width: 8rem;
+											border: none;
+											background-color: rgb(250, 250, 250);
+										"
+									>
+										<a href="#">
+											<img
+												style="
+													background-color: rgba(241, 27, 70, 0.75);
+													border-radius: 10px;
+												"
+												class="card-img-top"
+												src="assets/img/plus.png"
+											/>
+										</a>
+										<div class="card-body p-0">
+											<p class="text-center card-text">
+												Hello
+												<br />
+												<span style="font-size: 12px;" class="text-muted"
+													>27 videos</span
+												>
+											</p>
+										</div>
+									</div>
+									<div
+										class="card mr-5"
+										style="
+											width: 8rem;
+											border: none;
+											background-color: rgb(250, 250, 250);
+										"
+									>
+										<a href="#">
+											<img
+												style="
+													background-color: rgba(255, 166, 0, 0.5);
+													border-radius: 10px;
+												"
+												class="card-img-top"
+												src="assets/img/plus.png"
+											/>
+										</a>
+										<div class="card-body p-0">
+											<p class="text-center card-text">
+												Bye <br />
+												<span style="font-size: 12px;" class="text-muted"
+													>60 videos</span
+												>
+											</p>
+										</div>
+									</div>
+									<div
+										class="card mr-5"
+										style="
+											width: 8rem;
+											border: none;
+											background-color: rgb(250, 250, 250);
+										"
+									>
+										<a href="#">
+											<img
+												style="
+													background-color: rgba(68, 245, 186, 0.63);
+													border-radius: 10px;
+												"
+												class="card-img-top"
+												src="assets/img/plus.png"
+											/>
+										</a>
+										<div class="card-body p-0">
+											<p class="text-center card-text">
+												Kek <br />
+												<span style="font-size: 12px;" class="text-muted"
+													>420 videos</span
+												>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- ########## 2 CONFIG-PG BUTTONS STARTS ########### -->
+						<div class="btn-grp">
+							<button class="btn reset-btn" type="button">
+								Reset
+							</button>
+							<button class="btn save-btn" type="button">
+								Save
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<div id="tasks">
+					<div class="pt-5 pl-5">
+						<h4
+							class="mb-4"
+							style="font-family: Raleway, sans-serif; font-weight: 600;"
+						>
+							Running Tasks
+						</h4>
+						<!-- ########## TASK DROPDOWN STARTS ########## -->
+						<div class="task-stats mb-4">
+							<div class="stats-head d-flex">
+								<div class="d-flex ml-2">
+									<p
+										style="font-weight: 700;"
+										class="text-warning mr-3 mb-0 pt-2"
+									>
+										30 mins
+									</p>
+									<span></span>
+									<p style="font-weight: 700;" class="mr-3 mb-0 pt-2">69%</p>
+									<p style="font-style: italic;" class="ml-3 mb-0 pt-2">
+										oveno_video1.mkv
+									</p>
+								</div>
+								<div class="stats-btn-grp d-flex">
+									<button style="width: 3rem;" class="btn">
+										<i class="fas fa-pause"></i>
+									</button>
+									<button style="width: 3rem;" class="btn">
+										<i style="color: #149ddd;" class="fas fa-redo-alt"></i>
+									</button>
+									<button style="width: 3rem;" class="btn">
+										<i class="fas fa-angle-down"></i>
+									</button>
+								</div>
+							</div>
+							<div class="stats-body d-flex flex-column">
+								<div class="progress my-3">
+									<div
+										class="progress-bar"
+										role="progressbar"
+										style="width: 69%;"
+									></div>
+								</div>
+								<div class="p-grp d-flex">
+									<p class="mr-5">
+										<strong class="mr-1">Started:</strong
+										><span>69 min ago</span>
+									</p>
+									<p class="mr-5">
+										<strong class="mr-1">Status:</strong><span>alive</span>
+									</p>
+									<p class="mr-5">
+										<strong class="mr-1">Speed:</strong><span>6.9 mb/s</span>
+									</p>
+								</div>
+							</div>
+						</div>
+						<!-- ########## TASK DROPDOWN ENDS ########## -->
+
+						<!-- ########## TASK DROPDOWN STARTS ########## -->
+						<div class="task-stats mb-4">
+							<div class="stats-head d-flex">
+								<div class="d-flex ml-2">
+									<p
+										style="font-weight: 700;"
+										class="text-warning mr-3 mb-0 pt-2"
+									>
+										30 mins
+									</p>
+									<p style="font-weight: 700;" class="mr-3 mb-0 pt-2">40%</p>
+									<p style="font-style: italic;" class="ml-3 mb-0 pt-2">
+										oveno_video1.mkv
+									</p>
+								</div>
+								<div class="stats-btn-grp d-flex">
+									<button style="width: 3rem;" class="btn">
+										<i class="fas fa-pause"></i>
+									</button>
+									<button style="width: 3rem;" class="btn">
+										<i style="color: #149ddd;" class="fas fa-redo-alt"></i>
+									</button>
+									<button style="width: 3rem;" class="btn">
+										<i class="fas fa-angle-down"></i>
+									</button>
+								</div>
+							</div>
+							<div class="stats-body d-flex flex-column">
+								<div class="progress my-3">
+									<div
+										class="progress-bar"
+										role="progressbar"
+										style="width: 40%;"
+									></div>
+								</div>
+								<div class="p-grp d-flex">
+									<p class="mr-5">
+										<strong class="mr-1">Started:</strong
+										><span>69 min ago</span>
+									</p>
+									<p class="mr-5">
+										<strong class="mr-1">Status:</strong><span>alive</span>
+									</p>
+									<p class="mr-5">
+										<strong class="mr-1">Speed:</strong><span>6.9 mb/s</span>
+									</p>
+								</div>
+							</div>
+						</div>
+						<!-- ########## TASK DROPDOWN ENDS ########## -->
+					</div>
+				</div>
+
+				<div id="logs" hidden>
+					<div class="pt-5 pl-5">
+						<h4
+							class="mb-4"
+							style="font-family: Raleway, sans-serif; font-weight: 600;"
+						>
+							Logs
+						</h4>
+						<div class="row m-0">
+							<div
+								style="
+									font-size: 20px;
+									font-weight: 400;
+									font-variant: small-caps;
+								"
+							>
+								File Name...
+							</div>
+							<div class="offset-1"></div>
+							<div class="col-11 p-0">
+								<div class="list-group mt-1" id="list-tab" role="tablist">
+									<a
+										class="list-group-item list-group-item-action"
+										data-toggle="list"
+										href="#list-1"
+										role="tab"
+										>ALIAS 1, Oveno 0</a
+									>
+									<a
+										class="list-group-item list-group-item-action"
+										data-toggle="list"
+										href="#list-2"
+										role="tab"
+										>ALIAS 2, Oveno 0</a
+									>
+									<a
+										class="list-group-item list-group-item-action"
+										data-toggle="list"
+										href="#list-3"
+										role="tab"
+										>ALIAS 3, Oveno 0</a
+									>
+									<a
+										class="list-group-item list-group-item-action"
+										data-toggle="list"
+										href="#list-4"
+										role="tab"
+										>ALIAS 4, Oveno 0</a
+									>
+								</div>
+							</div>
+							<div class="offset-1"></div>
+							<div class="mt-3 col-11 p-0">
+								<div
+									class="tab-content"
+									style="border-radius: 7px;"
+									id="nav-tabContent"
+								>
+									<div
+										class="tab-pane fade p-2"
+										style="
+											box-shadow: 0 0 10px 1px lightgray;
+											border-radius: 7px;
+										"
+										id="list-1"
+										role="tabpanel"
+									>
+										111 Lorem, ipsum dolor sit amet consectetur adipisicing
+										elit. Similique veniam odio voluptatem deserunt?
+										Perspiciatis provident ratione accusamus nobis. Dolorem unde
+										est aut non sequi fuga id provident asperiores quod maxime!
+									</div>
+									<div
+										class="tab-pane fade p-2"
+										style="
+											box-shadow: 0 0 10px 1px lightgray;
+											border-radius: 7px;
+										"
+										id="list-2"
+										role="tabpanel"
+									>
+										222 Lorem ipsum dolor, sit amet consectetur adipisicing
+										elit. Ea eius aliquam corrupti magni perspiciatis ipsa
+										dolorum ipsam distinctio accusamus. Tenetur, reiciendis sint
+										quisquam adipisci qui itaque aperiam provident rerum magni.
+									</div>
+									<div
+										class="tab-pane fade p-2"
+										style="
+											box-shadow: 0 0 10px 1px lightgray;
+											border-radius: 7px;
+										"
+										id="list-3"
+										role="tabpanel"
+									>
+										333 Lorem ipsum dolor, sit amet consectetur adipisicing
+										elit. Amet sed quisquam quasi vel et tempora quam dolor
+										optio facere suscipit quidem sequi earum, voluptatum saepe
+										placeat animi ratione ducimus tempore.
+									</div>
+									<div
+										class="tab-pane fade p-2"
+										style="
+											box-shadow: 0 0 10px 1px lightgray;
+											border-radius: 7px;
+										"
+										id="list-4"
+										role="tabpanel"
+									>
+										444 Lorem, ipsum dolor sit amet consectetur adipisicing
+										elit. Reiciendis officia numquam fugiat consequatur,
+										provident odio deserunt nostrum ex doloribus corrupti rerum
+										dignissimos quae totam dolores accusantium eveniet
+										consequuntur molestias cum.
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- ########## MAIN-CONTENT ENDS ########## -->
+		</main>
+
+		<!-- ##################################################### -->
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script
+			src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
+			integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs="
+			crossorigin="anonymous"
+		></script>
+		<script src="assets/js/navbar.js"></script>
+		<script src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
+		<script src="assets/js/search.js"></script>
+	</body>
+</html>
